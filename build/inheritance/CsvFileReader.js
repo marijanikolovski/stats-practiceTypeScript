@@ -12,13 +12,14 @@ class CsvFileReader {
     }
     read() {
         this.data = fs_1.default
-            .readFileSync(this.filename, {
+            .readFileSync('football.csv', {
             encoding: 'utf-8'
         })
             .split('\n')
             .map((row) => {
             return row.split(',');
-        });
+        })
+            .map(this.mapRow);
     }
 }
 exports.CsvFileReader = CsvFileReader;
