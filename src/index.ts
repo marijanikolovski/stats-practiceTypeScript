@@ -3,6 +3,7 @@ import { MatchReader } from "./MatchReader";
 import { ConsoleReport } from "./reportTargets/ConsoleReport";
 import { WinsAnalysis } from "./analyzers/WinsAnalysis";
 import { Summary } from "./Summary";
+import { HtmlReport } from "./reportTargets/HtmReport";
 
 // Crete an object that satisfies the 'DataReade'
 // interface
@@ -14,7 +15,8 @@ matchReader.load();
 
 const summary = new Summary(
   new WinsAnalysis('Man United'),
-  new ConsoleReport()
+  //new ConsoleReport(),
+  new HtmlReport()
 )
 
 summary.buildAndPrintReport(matchReader.matches);
